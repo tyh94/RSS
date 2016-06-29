@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		840FC7B21D225FA200EBEE14 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 840FC7B11D225FA200EBEE14 /* main.m */; };
 		840FC7B51D225FA200EBEE14 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 840FC7B41D225FA200EBEE14 /* AppDelegate.m */; };
-		840FC7B81D225FA200EBEE14 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 840FC7B71D225FA200EBEE14 /* MainViewController.m */; };
+		840FC7B81D225FA200EBEE14 /* RSSFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 840FC7B71D225FA200EBEE14 /* RSSFeedViewController.m */; };
 		840FC7BB1D225FA200EBEE14 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 840FC7B91D225FA200EBEE14 /* Main.storyboard */; };
 		840FC7BD1D225FA200EBEE14 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 840FC7BC1D225FA200EBEE14 /* Assets.xcassets */; };
 		840FC7C01D225FA200EBEE14 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 840FC7BE1D225FA200EBEE14 /* LaunchScreen.storyboard */; };
@@ -23,6 +23,12 @@
 		840FC7E71D22894A00EBEE14 /* SlideNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 840FC7DF1D22894A00EBEE14 /* SlideNavigationController.m */; };
 		840FC7EB1D2289A200EBEE14 /* LeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 840FC7EA1D2289A200EBEE14 /* LeftMenuViewController.m */; };
 		840FC7F41D22CC8F00EBEE14 /* LeftMenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 840FC7F31D22CC8F00EBEE14 /* LeftMenuTableViewCell.m */; };
+		840FC7F71D239F1900EBEE14 /* RSSFeedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 840FC7F61D239F1900EBEE14 /* RSSFeedTableViewCell.m */; };
+		840FC7FA1D239FFE00EBEE14 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 840FC7F91D239FFE00EBEE14 /* DetailViewController.m */; };
+		840FC7FC1D23E39600EBEE14 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 840FC7FB1D23E39600EBEE14 /* CoreData.framework */; };
+		840FC8001D23E43100EBEE14 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 840FC7FE1D23E43100EBEE14 /* Model.xcdatamodeld */; };
+		840FC8071D23E9A200EBEE14 /* RSSSourceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 840FC8061D23E9A200EBEE14 /* RSSSourceViewController.m */; };
+		840FC80B1D23F5EF00EBEE14 /* RSSSourceEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 840FC80A1D23F5EF00EBEE14 /* RSSSourceEditViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,8 +36,8 @@
 		840FC7B11D225FA200EBEE14 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		840FC7B31D225FA200EBEE14 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		840FC7B41D225FA200EBEE14 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		840FC7B61D225FA200EBEE14 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
-		840FC7B71D225FA200EBEE14 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		840FC7B61D225FA200EBEE14 /* RSSFeedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RSSFeedViewController.h; sourceTree = "<group>"; };
+		840FC7B71D225FA200EBEE14 /* RSSFeedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RSSFeedViewController.m; sourceTree = "<group>"; };
 		840FC7BA1D225FA200EBEE14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		840FC7BC1D225FA200EBEE14 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		840FC7BF1D225FA200EBEE14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -55,6 +61,16 @@
 		840FC7EA1D2289A200EBEE14 /* LeftMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftMenuViewController.m; sourceTree = "<group>"; };
 		840FC7F21D22CC8F00EBEE14 /* LeftMenuTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftMenuTableViewCell.h; sourceTree = "<group>"; };
 		840FC7F31D22CC8F00EBEE14 /* LeftMenuTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftMenuTableViewCell.m; sourceTree = "<group>"; };
+		840FC7F51D239F1900EBEE14 /* RSSFeedTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSFeedTableViewCell.h; sourceTree = "<group>"; };
+		840FC7F61D239F1900EBEE14 /* RSSFeedTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSFeedTableViewCell.m; sourceTree = "<group>"; };
+		840FC7F81D239FFE00EBEE14 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		840FC7F91D239FFE00EBEE14 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		840FC7FB1D23E39600EBEE14 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		840FC7FF1D23E43100EBEE14 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		840FC8051D23E9A200EBEE14 /* RSSSourceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSSourceViewController.h; sourceTree = "<group>"; };
+		840FC8061D23E9A200EBEE14 /* RSSSourceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSSourceViewController.m; sourceTree = "<group>"; };
+		840FC8091D23F5EF00EBEE14 /* RSSSourceEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSSourceEditViewController.h; sourceTree = "<group>"; };
+		840FC80A1D23F5EF00EBEE14 /* RSSSourceEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSSourceEditViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				840FC7FC1D23E39600EBEE14 /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,6 +88,7 @@
 		840FC7A41D225FA200EBEE14 = {
 			isa = PBXGroup;
 			children = (
+				840FC7FD1D23E3F100EBEE14 /* Frameworks */,
 				840FC7AF1D225FA200EBEE14 /* test */,
 				840FC7AE1D225FA200EBEE14 /* Products */,
 			);
@@ -90,14 +108,14 @@
 				840FC7E81D22895100EBEE14 /* SlideMenu */,
 				840FC7B31D225FA200EBEE14 /* AppDelegate.h */,
 				840FC7B41D225FA200EBEE14 /* AppDelegate.m */,
-				840FC7B61D225FA200EBEE14 /* MainViewController.h */,
-				840FC7B71D225FA200EBEE14 /* MainViewController.m */,
 				840FC7B91D225FA200EBEE14 /* Main.storyboard */,
 				840FC7BC1D225FA200EBEE14 /* Assets.xcassets */,
 				840FC7BE1D225FA200EBEE14 /* LaunchScreen.storyboard */,
 				840FC7C11D225FA200EBEE14 /* Info.plist */,
 				840FC7B01D225FA200EBEE14 /* Supporting Files */,
 				840FC7F11D22C7A800EBEE14 /* LeftMenu */,
+				840FC8041D23E8A300EBEE14 /* RSSFeed */,
+				840FC8081D23E9AA00EBEE14 /* RSSSourceViewController */,
 			);
 			path = test;
 			sourceTree = "<group>";
@@ -106,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				840FC7B11D225FA200EBEE14 /* main.m */,
+				840FC7FE1D23E43100EBEE14 /* Model.xcdatamodeld */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -173,6 +192,62 @@
 				840FC7F01D22C79E00EBEE14 /* LeftMenuTableViewCell */,
 			);
 			name = LeftMenu;
+			sourceTree = "<group>";
+		};
+		840FC7FD1D23E3F100EBEE14 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				840FC7FB1D23E39600EBEE14 /* CoreData.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		840FC8011D23E7A900EBEE14 /* RSSFeedViewController */ = {
+			isa = PBXGroup;
+			children = (
+				840FC7B61D225FA200EBEE14 /* RSSFeedViewController.h */,
+				840FC7B71D225FA200EBEE14 /* RSSFeedViewController.m */,
+			);
+			name = RSSFeedViewController;
+			sourceTree = "<group>";
+		};
+		840FC8021D23E7B500EBEE14 /* RSSFeedTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				840FC7F51D239F1900EBEE14 /* RSSFeedTableViewCell.h */,
+				840FC7F61D239F1900EBEE14 /* RSSFeedTableViewCell.m */,
+			);
+			name = RSSFeedTableViewCell;
+			sourceTree = "<group>";
+		};
+		840FC8031D23E7BF00EBEE14 /* DetailViewController */ = {
+			isa = PBXGroup;
+			children = (
+				840FC7F81D239FFE00EBEE14 /* DetailViewController.h */,
+				840FC7F91D239FFE00EBEE14 /* DetailViewController.m */,
+			);
+			name = DetailViewController;
+			sourceTree = "<group>";
+		};
+		840FC8041D23E8A300EBEE14 /* RSSFeed */ = {
+			isa = PBXGroup;
+			children = (
+				840FC8021D23E7B500EBEE14 /* RSSFeedTableViewCell */,
+				840FC8011D23E7A900EBEE14 /* RSSFeedViewController */,
+				840FC8031D23E7BF00EBEE14 /* DetailViewController */,
+			);
+			name = RSSFeed;
+			sourceTree = "<group>";
+		};
+		840FC8081D23E9AA00EBEE14 /* RSSSourceViewController */ = {
+			isa = PBXGroup;
+			children = (
+				840FC8051D23E9A200EBEE14 /* RSSSourceViewController.h */,
+				840FC8061D23E9A200EBEE14 /* RSSSourceViewController.m */,
+				840FC8091D23F5EF00EBEE14 /* RSSSourceEditViewController.h */,
+				840FC80A1D23F5EF00EBEE14 /* RSSSourceEditViewController.m */,
+			);
+			name = RSSSourceViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -247,15 +322,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				840FC7F71D239F1900EBEE14 /* RSSFeedTableViewCell.m in Sources */,
 				840FC7E71D22894A00EBEE14 /* SlideNavigationController.m in Sources */,
 				840FC7E11D22894A00EBEE14 /* SlideNavigationContorllerAnimatorScale.m in Sources */,
+				840FC8001D23E43100EBEE14 /* Model.xcdatamodeld in Sources */,
 				840FC7E21D22894A00EBEE14 /* SlideNavigationContorllerAnimatorScaleAndFade.m in Sources */,
-				840FC7B81D225FA200EBEE14 /* MainViewController.m in Sources */,
+				840FC7B81D225FA200EBEE14 /* RSSFeedViewController.m in Sources */,
+				840FC80B1D23F5EF00EBEE14 /* RSSSourceEditViewController.m in Sources */,
 				840FC7B51D225FA200EBEE14 /* AppDelegate.m in Sources */,
 				840FC7E01D22894A00EBEE14 /* SlideNavigationContorllerAnimatorFade.m in Sources */,
 				840FC7B21D225FA200EBEE14 /* main.m in Sources */,
 				840FC7E41D22894A00EBEE14 /* SlideNavigationContorllerAnimatorSlideAndFade.m in Sources */,
+				840FC7FA1D239FFE00EBEE14 /* DetailViewController.m in Sources */,
 				840FC7F41D22CC8F00EBEE14 /* LeftMenuTableViewCell.m in Sources */,
+				840FC8071D23E9A200EBEE14 /* RSSSourceViewController.m in Sources */,
 				840FC7EB1D2289A200EBEE14 /* LeftMenuViewController.m in Sources */,
 				840FC7E31D22894A00EBEE14 /* SlideNavigationContorllerAnimatorSlide.m in Sources */,
 			);
@@ -370,6 +450,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = test/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = admin.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -381,6 +462,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = test/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = admin.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -409,6 +491,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		840FC7FE1D23E43100EBEE14 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				840FC7FF1D23E43100EBEE14 /* Model.xcdatamodel */,
+			);
+			currentVersion = 840FC7FF1D23E43100EBEE14 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 840FC7A51D225FA200EBEE14 /* Project object */;
 }

@@ -74,15 +74,15 @@
     switch (indexPath.row)
     {
         case 0:
-            vc = [mainStoryboard instantiateViewControllerWithIdentifier: @""];
+            vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"RSSSourceViewController"];
             break;
             
         case 1:
-            vc = [mainStoryboard instantiateViewControllerWithIdentifier: @""];
+            vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"RSSFeedViewController"];
             break;
             
         case 2:
-            vc = [mainStoryboard instantiateViewControllerWithIdentifier: @""];
+            vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"RSSFeedViewController"];
             break;
     }
     

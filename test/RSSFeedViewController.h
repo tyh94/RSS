@@ -12,6 +12,7 @@
 @interface RSSFeedViewController : UIViewController <SlideNavigationControllerDelegate, UITableViewDataSource, UITableViewDelegate, NSXMLParserDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) NSMutableArray *rssfeeds;
 
 @end
 

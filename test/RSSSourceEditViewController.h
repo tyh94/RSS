@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreData/CoreData.h>
 
 @interface RSSSourceEditViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITextField *titleTextField;
 @property (weak, nonatomic) IBOutlet UITextField *linkTextField;
-@property (weak, nonatomic) IBOutlet UIButton *saveButton;
+@property (strong) NSManagedObject *feed;
 
 @end

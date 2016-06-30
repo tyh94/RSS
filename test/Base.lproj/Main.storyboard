@@ -84,17 +84,45 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fLo-hv-m9n">
-                                <rect key="frame" x="0.0" y="134" width="375" height="533"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="78" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fLo-hv-m9n">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RSSFeedCell" id="Dyv-Py-Qr8">
-                                        <rect key="frame" x="0.0" y="92" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RSSFeedCell" rowHeight="78" id="Dyv-Py-Qr8" customClass="RSSSourceTableViewCell">
+                                        <rect key="frame" x="0.0" y="92" width="375" height="78"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Dyv-Py-Qr8" id="QPD-Ya-bW2">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="77"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UPQ-LE-1dH">
+                                                    <rect key="frame" x="8" y="8" width="359" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wAn-FG-k4l" userLabel="Label Link">
+                                                    <rect key="frame" x="8" y="31" width="359" height="38"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="wAn-FG-k4l" secondAttribute="bottom" id="2K8-Rd-mZn"/>
+                                                <constraint firstItem="wAn-FG-k4l" firstAttribute="leading" secondItem="QPD-Ya-bW2" secondAttribute="leadingMargin" id="Qom-8P-3XK"/>
+                                                <constraint firstItem="UPQ-LE-1dH" firstAttribute="top" secondItem="QPD-Ya-bW2" secondAttribute="topMargin" id="S6a-sV-n57"/>
+                                                <constraint firstItem="wAn-FG-k4l" firstAttribute="top" secondItem="UPQ-LE-1dH" secondAttribute="bottom" constant="2" id="eHs-MT-Zb6"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="wAn-FG-k4l" secondAttribute="trailing" id="eyk-Zg-5OM"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="UPQ-LE-1dH" secondAttribute="trailing" id="jVT-Q0-eHA"/>
+                                                <constraint firstItem="UPQ-LE-1dH" firstAttribute="leading" secondItem="QPD-Ya-bW2" secondAttribute="leadingMargin" id="nxd-ia-Gpm"/>
+                                                <constraint firstItem="wAn-FG-k4l" firstAttribute="top" secondItem="UPQ-LE-1dH" secondAttribute="bottom" constant="2" id="oMC-2t-Ihq"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="labelLink" destination="wAn-FG-k4l" id="thh-qy-Mar"/>
+                                            <outlet property="labelTitle" destination="UPQ-LE-1dH" id="iwL-ym-6CX"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -102,30 +130,28 @@
                                     <outlet property="delegate" destination="9Rd-eZ-1mX" id="i9s-4S-ugv"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OJ5-sK-EEb">
-                                <rect key="frame" x="0.0" y="64" width="375" height="70"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="70" id="rxJ-LU-3DK"/>
-                                </constraints>
-                                <state key="normal" title="Add feed"/>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="fLo-hv-m9n" secondAttribute="bottom" id="6uz-Xx-Uv9"/>
+                            <constraint firstAttribute="trailing" secondItem="fLo-hv-m9n" secondAttribute="trailing" id="OcB-Jn-Tvh"/>
+                            <constraint firstItem="fLo-hv-m9n" firstAttribute="top" secondItem="uol-gQ-3nh" secondAttribute="top" id="g19-9k-sRr"/>
+                            <constraint firstItem="fLo-hv-m9n" firstAttribute="leading" secondItem="uol-gQ-3nh" secondAttribute="leading" id="pDE-xI-Sym"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="qE6-NW-ePI">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="MCu-6F-bTY">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="OJ5-sK-EEb">
+                                <rect key="frame" x="329" y="7" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="+"/>
                                 <connections>
                                     <segue destination="OdK-P2-dGE" kind="show" id="TJU-9B-Ple"/>
                                 </connections>
                             </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="OJ5-sK-EEb" secondAttribute="trailing" id="4y7-7L-6ZB"/>
-                            <constraint firstAttribute="bottom" secondItem="fLo-hv-m9n" secondAttribute="bottom" id="6uz-Xx-Uv9"/>
-                            <constraint firstAttribute="trailing" secondItem="fLo-hv-m9n" secondAttribute="trailing" id="OcB-Jn-Tvh"/>
-                            <constraint firstItem="OJ5-sK-EEb" firstAttribute="top" secondItem="6M0-92-ad7" secondAttribute="bottom" id="faE-be-BAs"/>
-                            <constraint firstItem="fLo-hv-m9n" firstAttribute="top" secondItem="OJ5-sK-EEb" secondAttribute="bottom" id="lEK-PE-AJR"/>
-                            <constraint firstItem="fLo-hv-m9n" firstAttribute="top" secondItem="OJ5-sK-EEb" secondAttribute="bottom" id="mvr-3U-NbU"/>
-                            <constraint firstItem="fLo-hv-m9n" firstAttribute="leading" secondItem="uol-gQ-3nh" secondAttribute="leading" id="pDE-xI-Sym"/>
-                            <constraint firstItem="OJ5-sK-EEb" firstAttribute="leading" secondItem="uol-gQ-3nh" secondAttribute="leading" id="rb2-Gy-Gh3"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="qE6-NW-ePI"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="tableView" destination="fLo-hv-m9n" id="3N6-YH-bXE"/>
@@ -135,10 +161,10 @@
             </objects>
             <point key="canvasLocation" x="329.5" y="962.5"/>
         </scene>
-        <!--Source Edit View Controller-->
+        <!--Title-->
         <scene sceneID="U1n-dQ-5XG">
             <objects>
-                <viewController id="OdK-P2-dGE" customClass="RSSSourceEditViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RSSSourceEditViewController" id="OdK-P2-dGE" customClass="RSSSourceEditViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PET-9V-wZu"/>
                         <viewControllerLayoutGuide type="bottom" id="sGR-ym-uN4"/>
@@ -167,13 +193,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FtP-NA-DZx">
-                                <rect key="frame" x="171" y="290" width="34" height="30"/>
-                                <state key="normal" title="Save"/>
-                                <connections>
-                                    <action selector="saveFeed:" destination="OdK-P2-dGE" eventType="touchUpInside" id="cNl-iH-6jX"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OnZ-F3-aBa">
                                 <rect key="frame" x="88" y="161" width="200" height="30"/>
                                 <constraints>
@@ -183,11 +202,10 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="SSD-i9-2Ba" firstAttribute="top" secondItem="OnZ-F3-aBa" secondAttribute="bottom" constant="16" id="33O-uu-6hL"/>
                             <constraint firstItem="ThE-tV-t4F" firstAttribute="top" secondItem="PET-9V-wZu" secondAttribute="bottom" constant="60" id="36j-MV-lxx"/>
-                            <constraint firstItem="FtP-NA-DZx" firstAttribute="top" secondItem="rLf-uy-B2N" secondAttribute="bottom" constant="16" id="B29-dy-5Cc"/>
                             <constraint firstItem="OnZ-F3-aBa" firstAttribute="top" secondItem="ThE-tV-t4F" secondAttribute="bottom" constant="16" id="EDP-ZR-roX"/>
                             <constraint firstItem="rLf-uy-B2N" firstAttribute="centerX" secondItem="IZ5-pA-9ed" secondAttribute="centerX" id="OX6-da-Yo8"/>
                             <constraint firstItem="ThE-tV-t4F" firstAttribute="centerX" secondItem="IZ5-pA-9ed" secondAttribute="centerX" id="Q75-w8-mou"/>
@@ -195,16 +213,35 @@
                             <constraint firstItem="SSD-i9-2Ba" firstAttribute="top" secondItem="OnZ-F3-aBa" secondAttribute="bottom" constant="16" id="ZWe-mk-ePS"/>
                             <constraint firstItem="SSD-i9-2Ba" firstAttribute="centerX" secondItem="IZ5-pA-9ed" secondAttribute="centerX" id="eKS-2Y-L64"/>
                             <constraint firstItem="OnZ-F3-aBa" firstAttribute="centerX" secondItem="IZ5-pA-9ed" secondAttribute="centerX" id="gYM-RB-arG"/>
-                            <constraint firstItem="FtP-NA-DZx" firstAttribute="centerX" secondItem="IZ5-pA-9ed" secondAttribute="centerX" id="osL-9V-rTq"/>
                             <constraint firstItem="rLf-uy-B2N" firstAttribute="top" secondItem="SSD-i9-2Ba" secondAttribute="bottom" constant="16" id="rQt-7r-b1u"/>
                             <constraint firstItem="rLf-uy-B2N" firstAttribute="top" secondItem="SSD-i9-2Ba" secondAttribute="bottom" constant="16" id="uLJ-qb-MKT"/>
-                            <constraint firstItem="FtP-NA-DZx" firstAttribute="top" secondItem="rLf-uy-B2N" secondAttribute="bottom" constant="16" id="vrD-7a-wnT"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="KH1-OL-EPg">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="cx4-Yp-MlP">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ccN-Mq-Ysa">
+                                <rect key="frame" x="16" y="7" width="60" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="cancel:" destination="OdK-P2-dGE" eventType="touchUpInside" id="Tmm-uL-ioK"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="q5s-bN-Yxd">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="FtP-NA-DZx">
+                                <rect key="frame" x="299" y="7" width="60" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="saveFeed:" destination="OdK-P2-dGE" eventType="touchUpInside" id="cNl-iH-6jX"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="linkTextField" destination="rLf-uy-B2N" id="kCz-wp-I7S"/>
-                        <outlet property="saveButton" destination="FtP-NA-DZx" id="tJO-UL-om6"/>
                         <outlet property="titleTextField" destination="OnZ-F3-aBa" id="BzF-OE-2qJ"/>
                     </connections>
                 </viewController>

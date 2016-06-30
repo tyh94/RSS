@@ -9,6 +9,7 @@
 #import "RSSFeedViewController.h"
 #import "RSSFeedTableViewCell.h"
 #import "DetailViewController.h"
+#import "AppDelegate.h"
 
 @interface RSSFeedViewController (){
     NSXMLParser *parser;
@@ -29,11 +30,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     feeds = [[NSMutableArray alloc] init];
-    NSURL *url = [NSURL URLWithString:@"http://images.apple.com/main/rss/hotnews/hotnews.rss"];
-    parser = [[NSXMLParser alloc] initWithContentsOfURL:url];
-    [parser setDelegate:self];
-    [parser setShouldResolveExternalEntities:NO];
-    [parser parse];
+    NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Feeds"];
+    self.rssfeeds = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
+    for (NSObject *feed in self.rssfeeds) {
+        NSURL *url = [NSURL URLWithString:[feed valueForKey:@"link"]];
+        parser = [[NSXMLParser alloc] initWithContentsOfURL:url];
+        [parser setDelegate:self];
+        [parser setShouldResolveExternalEntities:NO];
+        [parser parse];
+    }
+    
     //self.tableView.rowHeight = UITableViewAutomaticDimension;
     //self.tableView.estimatedRowHeight = 260.0;
 }
@@ -42,6 +49,15 @@
     [super didReceiveMemoryWarning];
 }
 
+- (NSManagedObjectContext *)managedObjectContext
+{
+    NSManagedObjectContext *context = nil;
+    id delegate = [[UIApplication sharedApplication] delegate];
+    if ([delegate performSelector:@selector(managedObjectContext)]) {
+        context = [delegate managedObjectContext];
+    }
+    return context;
+}
 
 #pragma mark - Table View
 

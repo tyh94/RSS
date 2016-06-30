@@ -29,6 +29,9 @@
 		840FC8001D23E43100EBEE14 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 840FC7FE1D23E43100EBEE14 /* Model.xcdatamodeld */; };
 		840FC8071D23E9A200EBEE14 /* RSSSourceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 840FC8061D23E9A200EBEE14 /* RSSSourceViewController.m */; };
 		840FC80B1D23F5EF00EBEE14 /* RSSSourceEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 840FC80A1D23F5EF00EBEE14 /* RSSSourceEditViewController.m */; };
+		840FC84C1D24FEE900EBEE14 /* RSSSourceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 840FC84B1D24FEE900EBEE14 /* RSSSourceTableViewCell.m */; };
+		84A7682A1D250F900039EE8F /* MGSwipeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A768271D250F900039EE8F /* MGSwipeButton.m */; };
+		84A7682B1D250F900039EE8F /* MGSwipeTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A768291D250F900039EE8F /* MGSwipeTableCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +74,12 @@
 		840FC8061D23E9A200EBEE14 /* RSSSourceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSSourceViewController.m; sourceTree = "<group>"; };
 		840FC8091D23F5EF00EBEE14 /* RSSSourceEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSSourceEditViewController.h; sourceTree = "<group>"; };
 		840FC80A1D23F5EF00EBEE14 /* RSSSourceEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSSourceEditViewController.m; sourceTree = "<group>"; };
+		840FC84A1D24FEE900EBEE14 /* RSSSourceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSSourceTableViewCell.h; sourceTree = "<group>"; };
+		840FC84B1D24FEE900EBEE14 /* RSSSourceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSSourceTableViewCell.m; sourceTree = "<group>"; };
+		84A768261D250F900039EE8F /* MGSwipeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MGSwipeButton.h; path = "../../../Downloads/MGSwipeTableCell-master/MGSwipeTableCell/MGSwipeButton.h"; sourceTree = "<group>"; };
+		84A768271D250F900039EE8F /* MGSwipeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MGSwipeButton.m; path = "../../../Downloads/MGSwipeTableCell-master/MGSwipeTableCell/MGSwipeButton.m"; sourceTree = "<group>"; };
+		84A768281D250F900039EE8F /* MGSwipeTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MGSwipeTableCell.h; path = "../../../Downloads/MGSwipeTableCell-master/MGSwipeTableCell/MGSwipeTableCell.h"; sourceTree = "<group>"; };
+		84A768291D250F900039EE8F /* MGSwipeTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MGSwipeTableCell.m; path = "../../../Downloads/MGSwipeTableCell-master/MGSwipeTableCell/MGSwipeTableCell.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +114,7 @@
 		840FC7AF1D225FA200EBEE14 /* test */ = {
 			isa = PBXGroup;
 			children = (
+				84A7682C1D250FC40039EE8F /* MGSwipeTableCell */,
 				840FC7E81D22895100EBEE14 /* SlideMenu */,
 				840FC7B31D225FA200EBEE14 /* AppDelegate.h */,
 				840FC7B41D225FA200EBEE14 /* AppDelegate.m */,
@@ -115,7 +125,7 @@
 				840FC7B01D225FA200EBEE14 /* Supporting Files */,
 				840FC7F11D22C7A800EBEE14 /* LeftMenu */,
 				840FC8041D23E8A300EBEE14 /* RSSFeed */,
-				840FC8081D23E9AA00EBEE14 /* RSSSourceViewController */,
+				840FC8081D23E9AA00EBEE14 /* RSSSource */,
 			);
 			path = test;
 			sourceTree = "<group>";
@@ -239,15 +249,52 @@
 			name = RSSFeed;
 			sourceTree = "<group>";
 		};
-		840FC8081D23E9AA00EBEE14 /* RSSSourceViewController */ = {
+		840FC8081D23E9AA00EBEE14 /* RSSSource */ = {
+			isa = PBXGroup;
+			children = (
+				84A7682D1D2556010039EE8F /* RSSSourceViewController */,
+				84A7682E1D25560A0039EE8F /* RSSSourceEditViewController */,
+				84A7682F1D2556130039EE8F /* RSSSourceTableViewCell */,
+			);
+			name = RSSSource;
+			sourceTree = "<group>";
+		};
+		84A7682C1D250FC40039EE8F /* MGSwipeTableCell */ = {
+			isa = PBXGroup;
+			children = (
+				84A768261D250F900039EE8F /* MGSwipeButton.h */,
+				84A768271D250F900039EE8F /* MGSwipeButton.m */,
+				84A768281D250F900039EE8F /* MGSwipeTableCell.h */,
+				84A768291D250F900039EE8F /* MGSwipeTableCell.m */,
+			);
+			name = MGSwipeTableCell;
+			sourceTree = "<group>";
+		};
+		84A7682D1D2556010039EE8F /* RSSSourceViewController */ = {
 			isa = PBXGroup;
 			children = (
 				840FC8051D23E9A200EBEE14 /* RSSSourceViewController.h */,
 				840FC8061D23E9A200EBEE14 /* RSSSourceViewController.m */,
+			);
+			name = RSSSourceViewController;
+			sourceTree = "<group>";
+		};
+		84A7682E1D25560A0039EE8F /* RSSSourceEditViewController */ = {
+			isa = PBXGroup;
+			children = (
 				840FC8091D23F5EF00EBEE14 /* RSSSourceEditViewController.h */,
 				840FC80A1D23F5EF00EBEE14 /* RSSSourceEditViewController.m */,
 			);
-			name = RSSSourceViewController;
+			name = RSSSourceEditViewController;
+			sourceTree = "<group>";
+		};
+		84A7682F1D2556130039EE8F /* RSSSourceTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				840FC84A1D24FEE900EBEE14 /* RSSSourceTableViewCell.h */,
+				840FC84B1D24FEE900EBEE14 /* RSSSourceTableViewCell.m */,
+			);
+			name = RSSSourceTableViewCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -331,8 +378,11 @@
 				840FC80B1D23F5EF00EBEE14 /* RSSSourceEditViewController.m in Sources */,
 				840FC7B51D225FA200EBEE14 /* AppDelegate.m in Sources */,
 				840FC7E01D22894A00EBEE14 /* SlideNavigationContorllerAnimatorFade.m in Sources */,
+				84A7682B1D250F900039EE8F /* MGSwipeTableCell.m in Sources */,
+				840FC84C1D24FEE900EBEE14 /* RSSSourceTableViewCell.m in Sources */,
 				840FC7B21D225FA200EBEE14 /* main.m in Sources */,
 				840FC7E41D22894A00EBEE14 /* SlideNavigationContorllerAnimatorSlideAndFade.m in Sources */,
+				84A7682A1D250F900039EE8F /* MGSwipeButton.m in Sources */,
 				840FC7FA1D239FFE00EBEE14 /* DetailViewController.m in Sources */,
 				840FC7F41D22CC8F00EBEE14 /* LeftMenuTableViewCell.m in Sources */,
 				840FC8071D23E9A200EBEE14 /* RSSSourceViewController.m in Sources */,

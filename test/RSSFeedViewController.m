@@ -56,15 +56,9 @@
     }
     
     fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"RSS"];
-    if(self.isFavorite){
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"favorite==YES"];
-        [fetchRequest setPredicate:predicate];
-    }
     self.feeds = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
-    
-    dispatch_sync(dispatch_get_main_queue(), ^{
+ 
         [self.tableView reloadData];
-    });
 }
 
 - (void)didReceiveMemoryWarning {
@@ -101,9 +95,7 @@
 
     self.feeds = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
     
-    dispatch_sync(dispatch_get_main_queue(), ^{
-        [self.tableView reloadData];
-    });
+    [self.tableView reloadData];
 }
 
 #pragma mark - Table View

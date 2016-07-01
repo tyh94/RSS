@@ -13,7 +13,6 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *rssfeeds;
-@property (nonatomic) BOOL isFavorite;
 
 @property (nonatomic, strong) NSMutableArray *feeds;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;

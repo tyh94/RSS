@@ -10,6 +10,7 @@
 #import "AppDelegate.h"
 #import "RSSSourceTableViewCell.h"
 #import "RSSSourceEditViewController.h"
+#import "RSSFeedViewController.h"
 
 @interface RSSSourceViewController ()
 
@@ -47,6 +48,23 @@
     [self.tableView reloadData];
 }
 
+- (void)deleteAllEntities:(NSString *)nameEntity
+{
+    
+    NSManagedObjectContext *theContext = [self managedObjectContext];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:nameEntity];
+    [fetchRequest setIncludesPropertyValues:NO]; //only fetch the managedObjectID
+    
+    NSError *error;
+    NSArray *fetchedObjects = [theContext executeFetchRequest:fetchRequest error:&error];
+    for (NSManagedObject *object in fetchedObjects)
+    {
+        [theContext deleteObject:object];
+    }
+    
+    error = nil;
+    [theContext save:&error];
+}
 
 -(NSArray *) createRightButtons:(NSIndexPath *)indexPath
 {
@@ -59,8 +77,9 @@
 #endif
             // Delete object from database
             [context deleteObject:[self.feeds objectAtIndex:indexPath.row]];
-            
             NSError *error = nil;
+            
+            error = nil;
             if (![context save:&error]) {
 #if DEBUG
                 NSLog(@"Can't Delete! %@ %@", error, [error localizedDescription]);
@@ -71,6 +90,7 @@
                 [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
                 [self.tableView reloadData];
             }
+            [self deleteAllEntities:@"RSS"];
             
             return NO; //Don't autohide in delete button to improve delete expansion animation
         }];

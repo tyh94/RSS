@@ -39,7 +39,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    return 2;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -56,9 +56,6 @@
             cell.labelTitle.text = @"RSS feeds";
             break;
             
-        case 2:
-            cell.labelTitle.text = @"Favorites";
-            break;
     }
     
     
@@ -83,19 +80,10 @@
             [[SlideNavigationController sharedInstance] popToRootViewControllerAnimated:YES];
             break;
             
-        case 2:
-            vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"RSSFeedViewController"];
-            ((RSSFeedViewController *)vc).isFavorite = @YES;
-            break;
     }
     [[SlideNavigationController sharedInstance] popToRootAndSwitchToViewController:vc
                                                              withSlideOutAnimation:self.slideOutAnimationEnabled
                                                                      andCompletion:nil];
-    if(indexPath.row == 2 || indexPath.row == 1){
-        
-        [((RSSFeedViewController *)vc) viewDidLoad];
-        [((RSSFeedViewController *)vc).tableView reloadData];
-    }
 }
 
 

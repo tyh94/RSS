@@ -261,31 +261,42 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="83" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ef3-Hg-8Cl">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="116" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ef3-Hg-8Cl">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RSSFeedCell" rowHeight="83" id="qQq-5H-u5L" customClass="RSSFeedTableViewCell">
-                                        <rect key="frame" x="0.0" y="92" width="375" height="83"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RSSFeedCell" rowHeight="116" id="qQq-5H-u5L" customClass="RSSFeedTableViewCell">
+                                        <rect key="frame" x="0.0" y="92" width="375" height="116"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qQq-5H-u5L" id="Dya-CP-PIC">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="82"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="115"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aVF-xV-ECw">
-                                                    <rect key="frame" x="8" y="8" width="66" height="66"/>
+                                                    <rect key="frame" x="8" y="8" width="60" height="60"/>
                                                     <constraints>
+                                                        <constraint firstAttribute="width" constant="60" id="KTd-aL-7ff"/>
                                                         <constraint firstAttribute="width" secondItem="aVF-xV-ECw" secondAttribute="height" multiplier="1:1" id="xEQ-vM-bQn"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dmV-7G-XYv">
-                                                    <rect key="frame" x="90" y="48" width="228" height="18"/>
+                                                    <rect key="frame" x="84" y="81" width="234" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aFW-6l-EUP">
+                                                    <rect key="frame" x="8" y="70" width="30" height="45"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="30" id="RZS-4b-aRd"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Button"/>
+                                                    <connections>
+                                                        <action selector="addFavorite:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CaL-Gr-P8h"/>
+                                                    </connections>
+                                                </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gEj-Zq-tSD">
-                                                    <rect key="frame" x="90" y="8" width="228" height="32"/>
+                                                    <rect key="frame" x="84" y="8" width="234" height="65"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -293,18 +304,30 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="aVF-xV-ECw" firstAttribute="top" secondItem="Dya-CP-PIC" secondAttribute="topMargin" id="80C-WS-bGY"/>
+                                                <constraint firstItem="aFW-6l-EUP" firstAttribute="trailing" secondItem="aVF-xV-ECw" secondAttribute="trailing" id="91e-1o-5h2"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="gEj-Zq-tSD" secondAttribute="trailing" constant="16" id="Eii-Rz-ske"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="aVF-xV-ECw" secondAttribute="bottom" id="IhF-MY-96R"/>
+                                                <constraint firstAttribute="bottom" secondItem="aFW-6l-EUP" secondAttribute="bottom" id="H1h-vj-u82"/>
+                                                <constraint firstItem="aFW-6l-EUP" firstAttribute="top" secondItem="aVF-xV-ECw" secondAttribute="bottom" constant="2" id="Iyp-h0-PsP"/>
+                                                <constraint firstItem="aFW-6l-EUP" firstAttribute="top" secondItem="aVF-xV-ECw" secondAttribute="bottom" constant="2" id="Odh-ri-Huv"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="dmV-7G-XYv" secondAttribute="bottom" constant="8" id="Rkd-h5-Oap"/>
                                                 <constraint firstItem="aVF-xV-ECw" firstAttribute="leading" secondItem="Dya-CP-PIC" secondAttribute="leadingMargin" id="TPH-op-FdC"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="dmV-7G-XYv" secondAttribute="trailing" constant="16" id="V9h-5f-AQk"/>
                                                 <constraint firstItem="dmV-7G-XYv" firstAttribute="top" secondItem="gEj-Zq-tSD" secondAttribute="bottom" constant="8" id="aKZ-MN-Yuf"/>
+                                                <constraint firstItem="aFW-6l-EUP" firstAttribute="leading" secondItem="aVF-xV-ECw" secondAttribute="leading" id="ggx-j9-Cq6"/>
                                                 <constraint firstItem="dmV-7G-XYv" firstAttribute="leading" secondItem="aVF-xV-ECw" secondAttribute="trailing" constant="16" id="qt4-lK-h40"/>
                                                 <constraint firstItem="gEj-Zq-tSD" firstAttribute="top" secondItem="Dya-CP-PIC" secondAttribute="topMargin" id="wCZ-Uf-gip"/>
                                                 <constraint firstItem="gEj-Zq-tSD" firstAttribute="leading" secondItem="aVF-xV-ECw" secondAttribute="trailing" constant="16" id="zC3-3p-eAo"/>
+                                                <constraint firstItem="aFW-6l-EUP" firstAttribute="leading" secondItem="Dya-CP-PIC" secondAttribute="leading" id="zfI-aj-vcd"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="91e-1o-5h2"/>
+                                                    <exclude reference="zfI-aj-vcd"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="favoriteButton" destination="aFW-6l-EUP" id="Ix5-Uj-1eq"/>
                                             <outlet property="image" destination="aVF-xV-ECw" id="S7N-Ux-g7C"/>
                                             <outlet property="labelDescription" destination="dmV-7G-XYv" id="LJX-Fl-Nu9"/>
                                             <outlet property="labelTitle" destination="gEj-Zq-tSD" id="4hB-oD-vvN"/>
@@ -326,9 +349,23 @@
                             <constraint firstItem="ef3-Hg-8Cl" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="rv7-KY-vXZ"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="6lZ-9a-X6U"/>
+                    <navigationItem key="navigationItem" id="6lZ-9a-X6U">
+                        <nil key="title"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="OCi-Ep-L1e">
+                            <rect key="frame" x="113" y="7" width="150" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="All"/>
+                                <segment title="Favorite"/>
+                            </segments>
+                            <connections>
+                                <action selector="segmentChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="6bI-Me-xSa"/>
+                            </connections>
+                        </segmentedControl>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="segmentedControl" destination="OCi-Ep-L1e" id="nIg-bd-kAD"/>
                         <outlet property="tableView" destination="ef3-Hg-8Cl" id="CyC-uD-Iwi"/>
                     </connections>
                 </viewController>

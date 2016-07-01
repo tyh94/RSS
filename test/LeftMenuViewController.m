@@ -9,6 +9,7 @@
 #import "LeftMenuViewController.h"
 #import "LeftMenuTableViewCell.h"
 #import "SlideNavigationController.h"
+#import "RSSFeedViewController.h"
 
 @interface LeftMenuViewController ()
 
@@ -79,16 +80,22 @@
             
         case 1:
             vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"RSSFeedViewController"];
+            [[SlideNavigationController sharedInstance] popToRootViewControllerAnimated:YES];
             break;
             
         case 2:
             vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"RSSFeedViewController"];
+            ((RSSFeedViewController *)vc).isFavorite = @YES;
             break;
     }
-    
     [[SlideNavigationController sharedInstance] popToRootAndSwitchToViewController:vc
                                                              withSlideOutAnimation:self.slideOutAnimationEnabled
                                                                      andCompletion:nil];
+    if(indexPath.row == 2 || indexPath.row == 1){
+        
+        [((RSSFeedViewController *)vc) viewDidLoad];
+        [((RSSFeedViewController *)vc).tableView reloadData];
+    }
 }
 
 

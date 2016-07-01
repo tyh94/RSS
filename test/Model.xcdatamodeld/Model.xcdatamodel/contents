@@ -1,10 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15E65" minimumToolsVersion="Xcode 7.0">
     <entity name="Feeds" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="link" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="relationship2" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RSS" syncable="YES"/>
+    </entity>
+    <entity name="RSS" syncable="YES">
+        <attribute name="favorite" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="feed" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="info" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="link" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="relationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Feeds" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Feeds" positionX="-63" positionY="-18" width="128" height="75"/>
+        <element name="Feeds" positionX="-63" positionY="-18" width="128" height="105"/>
+        <element name="RSS" positionX="-54" positionY="-18" width="128" height="135"/>
     </elements>
 </model>

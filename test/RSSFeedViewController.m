@@ -13,7 +13,6 @@
 
 @interface RSSFeedViewController (){
     NSXMLParser *parser;
-    NSMutableArray *feeds;
     NSMutableDictionary *item;
     NSMutableString *title;
     NSMutableString *description;
@@ -24,12 +23,27 @@
 
 @implementation RSSFeedViewController
 
+- (void)addFavorite:(UIButton*)sender {
+    NSLog(@"%ld",(long)sender.tag);
+    NSManagedObjectContext *context = [self managedObjectContext];
+    if ([[[self.feeds objectAtIndex:sender.tag]valueForKey: @"favorite"] boolValue]){
+        [[self.feeds objectAtIndex:sender.tag] setValue:@NO forKey:@"favorite"];
+    }else{
+        [[self.feeds objectAtIndex:sender.tag] setValue:@YES forKey:@"favorite"];
+    }
+    NSError *error = nil;
+    // Save the object to persistent store
+    if (![context save:&error]) {
+        NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+    }
+    [self.tableView reloadData];
+}
 
 #pragma mark - UIViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    feeds = [[NSMutableArray alloc] init];
+    self.feeds = [[NSMutableArray alloc] init];
     NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Feeds"];
     self.rssfeeds = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
@@ -41,12 +55,29 @@
         [parser parse];
     }
     
-    //self.tableView.rowHeight = UITableViewAutomaticDimension;
-    //self.tableView.estimatedRowHeight = 260.0;
+    fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"RSS"];
+    if(self.isFavorite){
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"favorite==YES"];
+        [fetchRequest setPredicate:predicate];
+    }
+    self.feeds = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
+    
+    dispatch_sync(dispatch_get_main_queue(), ^{
+        [self.tableView reloadData];
+    });
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
 }
 
 - (NSManagedObjectContext *)managedObjectContext
@@ -58,6 +89,22 @@
     }
     return context;
 }
+- (IBAction)segmentChange:(id)sender {
+    NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Feeds"];
+    fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"RSS"];
+    
+    if (self.segmentedControl.selectedSegmentIndex == 1){
+            NSPredicate *predicate = [NSPredicate predicateWithFormat:@"favorite==YES"];
+        [fetchRequest setPredicate:predicate];
+    }
+
+    self.feeds = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
+    
+    dispatch_sync(dispatch_get_main_queue(), ^{
+        [self.tableView reloadData];
+    });
+}
 
 #pragma mark - Table View
 
@@ -66,13 +113,20 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return feeds.count;
+    return self.feeds.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     RSSFeedTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"RSSFeedCell" forIndexPath:indexPath];
-    cell.labelTitle.text = [[feeds objectAtIndex:indexPath.row] objectForKey: @"title"];
-    cell.labelDescription.text = [[feeds objectAtIndex:indexPath.row]objectForKey: @"description"];
+    cell.labelTitle.text = [[self.feeds objectAtIndex:indexPath.row] valueForKey: @"title"];
+    cell.labelDescription.text = [[self.feeds objectAtIndex:indexPath.row]valueForKey: @"info"];
+    if([[[self.feeds objectAtIndex:indexPath.row]valueForKey: @"favorite"] boolValue]){
+        [cell.favoriteButton setImage:[UIImage imageNamed:@"Favorite"] forState:UIControlStateNormal];
+    }else{
+        [cell.favoriteButton setImage:[UIImage imageNamed:@"AddFavorite"] forState:UIControlStateNormal];
+    }
+    cell.favoriteButton.tag = indexPath.row;
+    [cell.favoriteButton addTarget:self action:@selector(addFavorite:) forControlEvents:UIControlEventTouchUpInside];
     return cell;
 }
 
@@ -94,12 +148,32 @@
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName {
     
     if ([elementName isEqualToString:@"item"]) {
+        NSManagedObjectContext *context = [self managedObjectContext];        
         
-        [item setObject:title forKey:@"title"];
-        [item setObject:link forKey:@"link"];
-        [item setObject:description forKey:@"description"];
+        NSEntityDescription *entity = [NSEntityDescription entityForName:@"RSS" inManagedObjectContext:context];
         
-        [feeds addObject:[item copy]];
+        NSFetchRequest *request = [[NSFetchRequest alloc] init];
+        [request setEntity:entity];
+        [request setFetchLimit:1];
+        [request setPredicate:[NSPredicate predicateWithFormat:@"title == %@", title]];
+        
+        NSError *error = nil;
+        NSUInteger count = [context countForFetchRequest:request error:&error];
+        
+        if (!count)
+        {
+            NSManagedObject *newFeed = [NSEntityDescription insertNewObjectForEntityForName:@"RSS" inManagedObjectContext:context];
+            [newFeed setValue:title forKey:@"title"];
+            [newFeed setValue:link forKey:@"link"];
+            [newFeed setValue:description forKey:@"info"];
+            [newFeed setValue:@NO forKey:@"favorite"];
+            NSError *error = nil;
+            // Save the object to persistent store
+            if (![context save:&error]) {
+                NSLog(@"Can't add! %@ %@", error, [error localizedDescription]);
+            }
+        }
+
         
     }
     
@@ -129,7 +203,7 @@
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSString *string = [feeds[indexPath.row] objectForKey: @"link"];
+        NSString *string = [self.feeds[indexPath.row] valueForKey: @"link"];
         [[segue destinationViewController] setUrl:string];
         
     }

@@ -40,7 +40,9 @@
     [super viewDidAppear:animated];
     NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Feeds"];
-    self.feeds = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
+    
+       self.feeds = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
+    
     
     [self.tableView reloadData];
 }

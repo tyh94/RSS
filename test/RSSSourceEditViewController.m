@@ -56,7 +56,7 @@
                 NSManagedObject *newFeed = [NSEntityDescription insertNewObjectForEntityForName:@"Feeds" inManagedObjectContext:context];
                 [newFeed setValue:self.titleTextField.text forKey:@"title"];
                 [newFeed setValue:self.linkTextField.text forKey:@"link"];
-                            }
+            }
             NSError *error = nil;
             // Save the object to persistent store
             if (![context save:&error]) {
